@@ -1,5 +1,18 @@
 services:
 
+    webserver:
+        build:
+            context: .
+        ports:
+            - "${WEBSERVER_EXPOSED_PORT:-8080}:80"
+        user: 1000:1000
+        working_dir: /var/www/html
+        volumes:
+            - .:/var/www/html
+        depends_on:
+            shopware:
+                condition: service_healthy
+
     shopware:
         image: dockware/play:latest
         ports:
