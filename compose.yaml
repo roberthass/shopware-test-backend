@@ -1,0 +1,16 @@
+services:
+
+    shopware:
+        image: dockware/play:latest
+        ports:
+            - "80:80"
+        healthcheck:
+            test: ["CMD-SHELL", "curl -f http://localhost || exit 1"]
+            interval: 30s
+            timeout: 10s
+            retries: 5
+        volumes:
+            - shopware_data:/var/www/html
+
+volumes:
+    shopware_data:
