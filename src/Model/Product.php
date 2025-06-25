@@ -2,15 +2,24 @@
 
 namespace App\Model;
 
+use OpenApi\Attributes\Property;
+
 class Product
 {
-    private string $number;
+    #[Property(
+        description: 'Product SKU',
+        example: 'SWDEMO10007.4'
+    )]
+    public string $number;
 
-    private ?string $name = null;
+    #[Property(
+        description: 'Product name'
+    )]
+    public ?string $name = null;
 
-    private ?int $availableStock = null;
+    public ?int $availableStock = null;
 
-    private ?float $priceGross = null;
+    public ?float $priceGross = null;
 
     /**
      * @param array $data
