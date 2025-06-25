@@ -16,10 +16,6 @@ RUN apt-get -y install git zip
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-# Install Xdebug
-RUN pecl install xdebug-3.4.1 \
-    && docker-php-ext-enable xdebug
-
 USER 1000:1000
 
 # Startskript kopieren
