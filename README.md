@@ -20,3 +20,7 @@ make containers_up
 [Shop](http://localhost) 
 
 [Administation](http://localhost/admin) - user: admin password: shopware
+
+## symfony backend access
+
+http://localhost:8080

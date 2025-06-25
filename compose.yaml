@@ -1,9 +1,26 @@
 services:
 
+    webserver:
+        build:
+            context: .
+        ports:
+            - "${WEBSERVER_EXPOSED_PORT:-8080}:80"
+        user: 1000:1000
+        working_dir: /var/www/html
+        environment:
+          SHOPWARE_BASE_URI: "http://shopware"
+          SHOPWARE_USER: admin
+          SHOPWARE_PASSWORD: shopware
+        volumes:
+            - .:/var/www/html
+        depends_on:
+            shopware:
+                condition: service_healthy
+
     shopware:
         image: dockware/play:latest
         ports:
-            - "80:80"
+            - "${SHOPWARE_EXPOSED_PORT:-80}:80"
         healthcheck:
             test: ["CMD-SHELL", "curl -f http://localhost || exit 1"]
             interval: 30s
