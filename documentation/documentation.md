@@ -25,3 +25,14 @@ Mein Basis-Symfony Backend enthält bereits das symfony/test-pack als dev Abhän
 
 Nach dem Aufsetzen des Basis-Symfony-Backends würde ich mich als Nächstes um eine CI/CD Pipeline kümmern. 
 Damit mein Projekt bei jedem Commit automatisch getestet wird und es auch auf eine mögliche Dev- oder Staging-Umgebung ausgerollt werden kann ohne manuellen Aufwand. 
+
+## 3. Verbindung zwischen Symfony-Backend und Shopware herstellen
+
+Ich habe mich für den Http Client von Symfony entschieden da er für diese Bewerberaufgabe die meisten Möglichkeiten und Flexibilität bietet.
+Man hätte hier auch die guzzlehttp/guzzle Library nehmen können die OAuth2 bereits per Middleware unterstützt. 
+Des Weiteren hätte ich je nach Anwendungsfall auch nochmal das shopware-php-sdk evaluiert, das einen Großteil der Shopware API bereits abstrahiert.
+
+Ich habe mich für einen angeschlossenen Cache im Authenticator entschieden um nicht bei jedem Request den Token neu abholen zu müssen und damit die API stateless bleibt.
+Die BaseUrl zu Shopware und die Credentials werden aus Environment Variablen gelesen damit es keine Codeänderung und/oder Deployment geben muss, wenn sich diese ändern sollten.
+
+Ich habe die Integrationstests nur exemplarisch für den Authenticator Service gemacht und die restlichen Integrationstest aus Zeitgründen weg gelassen.

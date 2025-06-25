@@ -18,3 +18,21 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+    App\Service\ShopwareAdminApi\Authenticator:
+        arguments:
+            $username: '%env(SHOPWARE_USER)%'
+            $password: '%env(SHOPWARE_PASSWORD)%'
+
+    App\Service\ShopwareAdminApi\CustomHttpClientInterface: '@App\Service\ShopwareAdminApi\CustomHttpClient'
+
+    App\Service\ShopwareAdminApi\CustomHttpClient:
+        arguments:
+            $baseUrl: '%env(SHOPWARE_BASE_URI)%'
+
+    Symfony\Component\Cache\Adapter\AbstractAdapter:
+        class: Symfony\Component\Cache\Adapter\FilesystemAdapter
+        arguments:
+            $namespace: 'shopware_token'
+            $defaultLifetime: 300
+            $directory: '%kernel.cache_dir%/shopware'
