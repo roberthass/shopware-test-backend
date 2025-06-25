@@ -30,7 +30,7 @@ services:
         arguments:
             $baseUrl: '%env(SHOPWARE_BASE_URI)%'
 
-    Symfony\Component\Cache\Adapter\AbstractAdapter:
+    Symfony\Component\Cache\Adapter\AdapterInterface:
         class: Symfony\Component\Cache\Adapter\FilesystemAdapter
         arguments:
             $namespace: 'shopware_token'
