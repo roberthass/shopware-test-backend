@@ -1,0 +1,18 @@
+nelmio_api_doc:
+    documentation:
+        info:
+            title: Shopware Symfony Backend
+            description: This is the documentation for the technical task
+            version: 0.0.1
+            contact:
+                name: Robert Haß
+                email: roberthass@web.de
+        tags:
+            - name: Product
+              description: "Endpoints around Products"
+        servers:
+            -   url: 'http://127.0.0.1:8080/index.php'
+                description: Development Server
+    areas: # to filter documented areas
+        path_patterns:
+            - ^/api(?!/doc$) # Accepts routes under /api except /api/doc

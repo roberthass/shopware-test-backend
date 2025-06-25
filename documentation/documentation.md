@@ -36,3 +36,16 @@ Ich habe mich für einen angeschlossenen Cache im Authenticator entschieden um n
 Die BaseUrl zu Shopware und die Credentials werden aus Environment Variablen gelesen damit es keine Codeänderung und/oder Deployment geben muss, wenn sich diese ändern sollten.
 
 Ich habe die Integrationstests nur exemplarisch für den Authenticator Service gemacht und die restlichen Integrationstest aus Zeitgründen weg gelassen.
+
+## 4. Ressource im Symfony-Backend erstellen
+
+An dieser Stelle habe ich einen ProductsController erstellt und den Fetcher injected. 
+Wenn ich nun das Product Array zurückgebe, übernimmt der JsonSerializer vom JsonResponse den Rest.
+Für die Dokumentation habe ich noch das nelmio/api-doc-bundle bundle hinzugefügt das die OpenApi Attributes an der Methode analysiert und unter http://localhost:8080/index.php/api/doc.json als json oder http://localhost:8080/index.php/api/doc als swagger ui zur Verfügugn stellt.
+
+CORS wird über das Paket nelmio/cors-bundle übernommen damit ich vom Frontend in einem anderen Port Bereich auf die API zugreifen kann.
+
+
+
+
+

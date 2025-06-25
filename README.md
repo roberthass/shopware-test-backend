@@ -17,10 +17,14 @@ make containers_up
 
 ## shopware access
 
-[Shop](http://localhost) 
-
-[Administation](http://localhost/admin) - user: admin password: shopware
+- [Shop](http://localhost) 
+- [Administation](http://localhost/admin) - user: admin password: shopware
 
 ## symfony backend access
 
-http://localhost:8080
+- http://localhost:8080/index.php/
+
+### open api ducumentation
+
+- [Open Api JSON](http://localhost:8080/index.php/api/doc.json)
+- [Swagger UI](http://localhost:8080/index.php/api/doc)
